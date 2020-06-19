@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <base href="/ssm/">
+    <!--
+    1.引入js文件  ueditor.all.js   ueditor.config.js    VueUeditorWrap.js
+    2.vue引入VueUeditorWrap组件(封装过后的ueditor，通过自定义标签使用)
+    3.页面添加VueUeditorWrap自定义标签，该组件会修改默认的UEDITOR_HOME_URL
+    4.修改默认的配置文件的serverUrl和UEDITOR_HOME_URL
+    -->
+    <!--<script src="static/ueditor/ueditor.all.js"></script>-->
+    <script src="static/vue/vue.js"></script>
+    <script src="static/vue/vue-ueditor-wrap.min.js"></script>
+
+
+</head>
+<body>
+<div id="div">
+    <!--默认组件会自动的修改前端资源文件加载地址  ../UEditor/目录下查找 ueditor.config.js -->
+    <vue-ueditor-wrap :config="myConfig" v-model="msg"></vue-ueditor-wrap>
+</div>
+</body>
+<script>
+    let vm = new Vue({
+        el:'#div',
+        data:{
+            myConfig: {
+                //路径不一致时用UEDITOR_HOME_URL
+                UEDITOR_HOME_URL: 'static/ueditor/',
+                /**
+                 * {"imageActionName":"uploadimage",
+                 * "imageFieldName":"upfile","imageMaxSize":2048000,
+                 * "imageAllowFiles":[".png",".jpg",".jpeg",".gif",".bmp"],
+                 * "imageCompressEnable":true,"imageCompressBorder":1600,
+                 * "imageInsertAlign":"none","imageUrlPrefix":"http:\/\/35.201.165.105:8000",
+                 * "imagePathFormat":"\/storage\/image\/{yyyy}{mm}{dd}\/{time}{rand:6}",
+                 * "scrawlActionName":"uploadscrawl","scrawlFieldName":"upfile",
+                 * "scrawlPathFormat":"\/storage\/image\/{yyyy}{mm}{dd}\/{time}{rand:6}",
+                 * "scrawlMaxSize":2048000,"scrawlUrlPrefix":"http:\/\/35.201.165.105:8000",
+                 * "scrawlInsertAlign":"none","snapscreenActionName":"uploadimage",
+                 * "snapscreenPathFormat":"\/storage\/image\/{yyyy}{mm}{dd}\/{time}{rand:6}",
+                 * "snapscreenUrlPrefix":"http:\/\/35.201.165.105:8000",
+                 * "snapscreenInsertAlign":"none","catcherLocalDomain":["127.0.0.1","localhost",
+                 * "img.baidu.com"],"catcherActionName":"catchimage",
+                 * "catcherFieldName":"source","catcherPathFormat":"\/storage\/image\/{yyyy}{mm}{dd}\/{time}{rand:6}","catcherUrlPrefix":"http:\/\/35.201.165.105:8000","catcherMaxSize":2048000,"catcherAllowFiles":[".png",".jpg",".jpeg",".gif",".bmp"],"videoActionName":"uploadvideo","videoFieldName":"upfile","videoPathFormat":"\/storage\/video\/{yyyy}{mm}{dd}\/{time}{rand:6}","videoUrlPrefix":"http:\/\/35.201.165.105:8000","videoMaxSize":102400000,"videoAllowFiles":[".flv",".swf",".mkv",".avi",".rm",".rmvb",".mpeg",".mpg",".ogg",".ogv",".mov",".wmv",".mp4",".webm",".mp3",".wav",".mid"],"fileActionName":"uploadfile","fileFieldName":"upfile","filePathFormat":"\/storage\/file\/{yyyy}{mm}{dd}\/{time}{rand:6}","fileUrlPrefix":"http:\/\/35.201.165.105:8000","fileMaxSize":51200000,"fileAllowFiles":[".png",".jpg",".jpeg",".gif",".bmp",".flv",".swf",".mkv",".avi",".rm",".rmvb",".mpeg",".mpg",".ogg",".ogv",".mov",".wmv",".mp4",".webm",".mp3",".wav",".mid",".rar",".zip",".tar",".gz",".7z",".bz2",".cab",".iso",".doc",".docx",".xls",".xlsx",".ppt",".pptx",".pdf",".txt",".md",".xml"],"imageManagerActionName":"listimage","imageManagerListPath":"\/storage\/image\/","imageManagerListSize":20,"imageManagerUrlPrefix":"http:\/\/35.201.165.105:8000","imageManagerInsertAlign":"none","imageManagerAllowFiles":[".png",".jpg",".jpeg",".gif",".bmp"],"fileManagerActionName":"listfile","fileManagerListPath":"\/storage\/file\/","fileManagerUrlPrefix":"http:\/\/35.201.165.105:8000","fileManagerListSize":20,"fileManagerAllowFiles":[".png",".jpg",".jpeg",".gif",".bmp",".flv",".swf",".mkv",".avi",".rm",".rmvb",".mpeg",".mpg",".ogg",".ogv",".mov",".wmv",".mp4",".webm",".mp3",".wav",".mid",".rar",".zip",".tar",".gz",".7z",".bz2",".cab",".iso",".doc",".docx",".xls",".xlsx",".ppt",".pptx",".pdf",".txt",".md",".xml"]}
+                 *
+                 */
+                // serverUrl:'http://35.201.165.105:8000/controller.php'
+                serverUrl:'ueditor'    //  /应用名/ueditor
+            },
+            msg:'<h2><img src="http://img.baidu.com/hi/jx2/j_0003.gif"/>Vue + UEditor + v-model双向绑定</h2>'
+        },
+        methods:{},
+        components:{
+            VueUeditorWrap  //使用vue-ueditor-wrap标签必须先申明使用组件
+        }
+
+    })
+</script>
+</html>

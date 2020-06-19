@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">  
+  <modelVersion>4.0.0</modelVersion>  
+  <groupId>com.hwp</groupId>  
+  <artifactId>ssm_project</artifactId>  
+  <version>1.0-SNAPSHOT</version>
+  <build>
+    <plugins>
+      <plugin>
+          <groupId>org.apache.maven.plugins</groupId><!--maven提供的自定义控制jdk版本的插件-->
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>3.8.1</version>
+          <configuration>
+            <!--class文件jdk版本-->
+            <target>1.8</target>
+            <!--源码jdk版本-->
+            <source>1.8</source>
+          </configuration>
+      </plugin>
+    </plugins>
+  </build>
+  <packaging>war</packaging>
+  <dependencies> 
+    <dependency> 
+      <!--mysql 8依赖
+                        1.mysql驱动版本不能低于数据库版本
+                        2.mysql8 的数据库 默认需要进行SSL 安全认证 和 serverTimezone认证  url连接必须带上这两个参数
+                        -->  
+      <groupId>mysql</groupId>  
+      <artifactId>mysql-connector-java</artifactId>  
+      <version>8.0.20</version> 
+    </dependency>  
+    <dependency> 
+      <!--连接池依赖-->  
+      <groupId>com.alibaba</groupId>  
+      <artifactId>druid</artifactId>  
+      <version>1.1.22</version> 
+    </dependency>  
+    <dependency> 
+      <!--mybatis-->  
+      <groupId>org.mybatis</groupId>  
+      <artifactId>mybatis</artifactId>  
+      <version>3.5.5</version> 
+    </dependency>  
+    <dependency> 
+      <!--mybtis与spring整合-->  
+      <groupId>org.mybatis</groupId>  
+      <artifactId>mybatis-spring</artifactId>  
+      <version>2.0.4</version> 
+    </dependency>  
+    <!--spring-->  
+    <dependency> 
+      <groupId>org.springframework</groupId>  
+      <artifactId>spring-webmvc</artifactId>  
+      <version>5.2.5.RELEASE</version> 
+    </dependency>  
+    <dependency> 
+      <!--orm整合依赖 会把tx和jdbc依赖进来-->  
+      <groupId>org.springframework</groupId>  
+      <artifactId>spring-orm</artifactId>  
+      <version>5.2.5.RELEASE</version> 
+    </dependency>  
+    <dependency> 
+      <!--aop编程-->  
+      <groupId>org.springframework</groupId>  
+      <artifactId>spring-aspects</artifactId>  
+      <version>5.2.5.RELEASE</version> 
+    </dependency>  
+    <dependency> 
+      <groupId>org.springframework</groupId>  
+      <artifactId>spring-test</artifactId>  
+      <version>5.2.5.RELEASE</version> 
+    </dependency>  
+    <dependency> 
+      <groupId>junit</groupId>  
+      <artifactId>junit</artifactId>  
+      <version>4.12</version> 
+    </dependency>  
+    <!--        spring5日志  log4j2-->  
+    <dependency> 
+      <groupId>org.apache.logging.log4j</groupId>  
+      <artifactId>log4j-slf4j-impl</artifactId>  
+      <version>2.13.3</version> 
+    </dependency>  
+    <dependency> 
+      <groupId>com.fasterxml.jackson.core</groupId>  
+      <artifactId>jackson-databind</artifactId>  
+      <version>2.11.0</version> 
+    </dependency>  
+    <!--ajax支持-->  
+    <!--
+            通用mapper  tkmapper
+            1.引入依赖
+            2.SqlSessionFactoryBean修改使用tkmapper提供的Configuration
+            3.修改MapperScanner为tkmapper提供的注解
+            4.在mapper层接口继承Mapper接口  tkmapper会自动创建代理子类 生成常用CRUD方法
+            5.在实体类中添加相关的映射配置  配置属性到数据库字段的映射关系  设置主键映射
+            -->  
+    <dependency> 
+      <groupId>tk.mybatis</groupId>  
+      <artifactId>mapper</artifactId>  
+      <version>4.1.5</version> 
+    </dependency>
+    <!--
+ 分页插件:
+ 1.引入依赖
+ 2.修改SqlSessionFactoryBean创建过程，添加分页插件对象
+ 3.在需要使用分页的功能调用dao方法前编写分页api
+ a.开启分页功能 ，会自动扩展sql     PageHelper.startPage(第几页，每个显示条数)
+ b.封装查询结果到分页信息对象中     new PageInfo(返回结果集合)
+ -->
+    <dependency>
+      <groupId>com.github.pagehelper</groupId>
+      <artifactId>pagehelper</artifactId>
+      <version>5.1.11</version>
+    </dependency>
+
+    <!--
+    1.导入依赖包
+    远程仓库无法下com.baidu.ueditor需要打包ueditor包到本地仓库
+    a.打开当前idea控制台或者windows的控制台
+    b.添加install命令并执行 注意控制台能够执行mvn命令必须保证设置
+    了maven到环境变量中
+mvn install:install-file -DgroupId=com.baidu -DartifactId=ueditor  -Dversion=1.1.2 -Dpackaging=jar -Dfile=F:\java41\day63-危废品处理平台06-法律法规\3.其他\ueditor-1.4.3.3\jsp\lib\ueditor-1.1.2.jar
+    2.将百度官方下的源码导入到项目，添加后端配置文件config.json到resources
+    3.编写统一请求接口，添加action=config的处理逻辑，读取config.json返回json到前端
+    4.编写统一请求接口的其他功能处理方法（图片上传演示）-->
+
+    <dependency>
+      <groupId>com.baidu</groupId>
+      <artifactId>ueditor</artifactId>
+      <version>1.1.2</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.json</groupId>
+      <artifactId>json</artifactId>
+      <version>20170516</version>
+    </dependency>
+
+    <dependency>
+      <groupId>commons-fileupload</groupId>
+      <artifactId>commons-fileupload</artifactId>
+      <version>1.3.3</version>
+    </dependency>
+    <!--   <dependency>
+         <groupId>commons-io</groupId>
+         <artifactId>commons-io</artifactId>
+         <version>2.4</version>
+       </dependency>-->
+    <dependency>
+      <groupId>commons-codec</groupId>
+      <artifactId>commons-codec</artifactId>
+      <version>1.9</version>
+    </dependency>
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>javax.servlet-api</artifactId>
+      <version>3.1.0</version>
+    </dependency>
+  </dependencies> 
+</project>
