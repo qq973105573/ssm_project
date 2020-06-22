@@ -68,7 +68,6 @@ let vm = new Vue({
                 method:'post',
                 data:this.app/*{}模拟失败数据*/
             }).then(response=>{
-
                 if(response.data.success){
                     //保存成功后 将   动态切换选项卡和列表内容
                     this.active=true;
@@ -77,7 +76,6 @@ let vm = new Vue({
                     this.app={};
                 }
                 layer.msg(response.data.msg);
-
             }).catch(error=>{//后台抛出错误无法被ExceptionController捕获处理的时候进入
                 layer.msg(error.message);
             })

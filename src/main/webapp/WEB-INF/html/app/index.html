@@ -205,9 +205,8 @@
 														<a class="green"  title="编辑"  @click="toUpdate(app)">
 															<i class="ace-icon fa fa-pencil bigger-130"></i>
 														</a>
-														<a class="red" href="javascript:void(0);" title="删除" >
-
-															<i class="ace-icon fa fa-trash-o bigger-130"></i>
+														<a class="red" href="javascript:void(0);" title="删除" @click="toDelete(app.id)">
+															<i class="ace-icon fa fa-trash-o bigger-130" ></i>
 														</a>
 													</div>
 												</td>
@@ -306,7 +305,7 @@
         try{ace.settings.check('sidebar' , 'collapsed')}catch(e){}
 
         try{ace.settings.check('breadcrumbs' , 'fixed')}catch(e){}
-        //load()异步请求加载页面紫怡
+        //load()异步请求加载页面资源
         $("#navbar").load("navbar");
         $("#sidebar").load("sidebar");
     })

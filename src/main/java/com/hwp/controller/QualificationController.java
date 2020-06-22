@@ -53,21 +53,4 @@ public class QualificationController {
         return new Result(true,"更新成功",null);
     }
 
-    @RequestMapping("insert")
-    public Result insert(@RequestBody Qualification qualification){
-        qualification.setCreateDate(new Date());
-        qualification.setUpdateDate(new Date());
-        qualification.setDelFlag("0");
-        qualificationService.insertSelective(qualification);
-        return new Result(true,"添加成功",null);
-    }
-    @RequestMapping("toDelete/{id}")
-    public Result toDelete(@PathVariable("id")long id){
-        Qualification appVersion = new Qualification();
-        appVersion.setId(id);
-        appVersion.setUpdateDate(new Date());
-        appVersion.setDelFlag("1");
-        qualificationService.updateByPrimaryKeySelective(appVersion);
-        return new Result(true,"删除成功",null);
-    }
 }

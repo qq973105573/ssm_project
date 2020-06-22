@@ -16,6 +16,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import tk.mybatis.mapper.common.Mapper;
 
 import java.sql.SQLException;
+import java.util.Date;
 import java.util.List;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -61,8 +62,12 @@ public class TestSSM {
     }
     @Test
     public void testDelete(){
-        int i = appVersionService.deleteByPrimaryKey(1);
-        System.out.println(i);
+        AppVersion appVersion = new AppVersion();
+        appVersion.setId(3L);
+        appVersion.setUpdateDate(new Date());
+        appVersion.setDelFlag("1");
+        appVersionService.updateByPrimaryKeySelective(appVersion);
+
     }
 
 //

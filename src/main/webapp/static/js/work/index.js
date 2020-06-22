@@ -43,7 +43,6 @@ let vm = new Vue({
             }).catch(error =>{
                 layer.msg(error.message);
             })
-
         },
         selectAll:function () {
             this.map={status:''}

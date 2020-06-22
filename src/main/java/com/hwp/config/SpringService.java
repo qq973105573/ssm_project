@@ -17,11 +17,10 @@ import javax.activation.DataSource;
  b.声明事务管理器
  c.开启事务注解支持
  d.在需要事务控制的服务层的类上添加事务注解
- f.引入配置文件
  */
 @Configuration
 @ComponentScan(basePackages = "com.hwp.service")
-@PropertySource(value = "classpath:sys.properties",encoding = "utf-8")
+@PropertySource(value = "classpath:ueditor.properties",encoding = "utf-8")//引入配置文件
 @EnableTransactionManagement
 public class SpringService {
 
