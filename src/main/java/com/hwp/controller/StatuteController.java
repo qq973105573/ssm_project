@@ -1,7 +1,6 @@
 package com.hwp.controller;
 
 import com.github.pagehelper.PageInfo;
-import com.hwp.entity.AppVersion;
 import com.hwp.entity.Result;
 import com.hwp.entity.Statute;
 import com.hwp.service.StatuteService;
@@ -10,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.Date;
-import java.util.Map;
+
 
 @RestController
 @RequestMapping("manager/statute")

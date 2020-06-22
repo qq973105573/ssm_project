@@ -19,10 +19,14 @@ let vm = new Vue({
         VueUeditorWrap
     },
     methods: {
+        selectAll:function () {
+            this.type='',
+            this.selectPage(1,this.pageInfo.pageSize);
+        },
         selectPage: function (pageNum,pageSize) {
             axios({
                 url:`manager/statute/selectPage/${pageNum}/${pageSize}`,
-                params:{type:this.type}
+                params:{type:this.type},
             }).then(response=>{
                 // console.log(response);
                 this.pageInfo=response.data.obj;
@@ -87,7 +91,6 @@ let vm = new Vue({
             this.active=active;   //点击选项卡修改绑定的active值
         }
     },
-
     created: function () {
         this.selectPage(1, this.pageInfo.pageSize);
     },

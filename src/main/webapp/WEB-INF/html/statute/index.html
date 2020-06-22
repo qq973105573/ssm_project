@@ -192,7 +192,7 @@
                                                             <div class="row padding-tb-10">
                                                                 <div class="col-sm-6">
                                                                     <label class="inline">地&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;区：</label>
-                                                                    <select name="type" class="width-80">
+                                                                    <select name="type" class="width-80" v-model="type">
                                                                         <option value="">请选择区域</option>
                                                                         <option value="1" >国家</option>
                                                                         <option value="2" >地方</option>
@@ -201,7 +201,7 @@
                                                             </div>
                                                             <div class="padding-trb-10 col-sm-12">
                                                                 <span class="btn  btn-primary btn-sm col-sm-6"
-                                                                      onclick="">全 部 </span>
+                                                                      @click="selectAll">全 部 </span>
                                                                 <span class="btn btn-info btn-sm col-sm-6"
                                                                       id="search-btn" @click="selectPage(1,pageInfo.pageSize)">条 件 查 询</span>
                                                             </div>

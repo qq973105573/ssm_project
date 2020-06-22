@@ -3,6 +3,7 @@ package com.hwp.entity;
 import javax.persistence.Column;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import java.util.Date;
 
 @Table(name = "sys_area")
@@ -76,6 +77,17 @@ public class SysArea {
     private String delFlag;
 
     private String icon;
+
+    @Transient
+    private String parentName;
+
+    public String getParentName() {
+        return parentName;
+    }
+
+    public void setParentName(String parentName) {
+        this.parentName = parentName;
+    }
 
     /**
      * 获取编号
@@ -305,5 +317,25 @@ public class SysArea {
      */
     public void setIcon(String icon) {
         this.icon = icon == null ? null : icon.trim();
+    }
+
+    @Override
+    public String toString() {
+        return "SysArea{" +
+                "id=" + id +
+                ", parentId=" + parentId +
+                ", parentIds='" + parentIds + '\'' +
+                ", code='" + code + '\'' +
+                ", name='" + name + '\'' +
+                ", type='" + type + '\'' +
+                ", createBy='" + createBy + '\'' +
+                ", createDate=" + createDate +
+                ", updateBy='" + updateBy + '\'' +
+                ", updateDate=" + updateDate +
+                ", remarks='" + remarks + '\'' +
+                ", delFlag='" + delFlag + '\'' +
+                ", icon='" + icon + '\'' +
+                ", parentName='" + parentName + '\'' +
+                '}';
     }
 }

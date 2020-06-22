@@ -3,68 +3,39 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
 <head>
-	<meta charset="utf-8" />
+	<base href="/guguanjia/">
+	<meta charset="utf-8"/>
 	<meta name="renderer" content="webkit">
-
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
 	<title>固管家服务平台</title>
-
-	<meta name="description" content="index" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+	<meta name="description" content="index"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
 
 	<!-- bootstrap & fontawesome -->
-	<link rel="stylesheet" href="../../../static/bootstrap/bootstrap.min.css" />
-	<link rel="stylesheet" href="../../../static/css/font-awesome.min.css" />
-
-	<link rel="stylesheet" href="../../../static/chosen/chosen.min.css" />
+	<link rel="stylesheet" href="static/bootstrap/bootstrap.min.css"/>
+	<link rel="stylesheet" href="static/css/font-awesome.min.css"/>
+	<link rel="stylesheet" href="static/chosen/chosen.min.css"/>
 
 	<!-- ace styles -->
-	<link rel="stylesheet" href="../../../static/ace/css/ace.min.css" id="main-ace-style" />
-
-	<!--[if lte IE 9]>
-	<link rel="stylesheet" href="../../../static/ace/css/ace-part2.min.css" />
-	<![endif]-->
-	<link rel="stylesheet" href="../../../static/ace/css/ace-skins.min.css" />
-	<link rel="stylesheet" href="../../../static/ace/css/ace-rtl.min.css" />
-
-	<!--[if lte IE 9]>
-	<link rel="stylesheet" href="../../../static/ace/css/ace-ie.min.css" />
-	<![endif]-->
-
-	<link rel="stylesheet" href="../../../static/ztree/metro.css" />
-	<link rel="stylesheet" href="../../../static/validate/css/validform.css" />
-	<link rel="stylesheet" href="../../../static/css/custom.css" />
-
+	<link rel="stylesheet" href="static/ace/css/ace.min.css" id="main-ace-style"/>
+	<link rel="stylesheet" href="static/ace/css/ace-skins.min.css"/>
+	<link rel="stylesheet" href="static/ace/css/ace-rtl.min.css"/>
+	<link rel="stylesheet" href="static/ztree/metro.css"/>
+	<link rel="stylesheet" href="static/validate/css/validform.css"/>
+	<link rel="stylesheet" href="static/css/custom.css"/>
 
 	<!--[if !IE]> -->
-	<script src="../../../static/jquery/jquery.js"></script>
+	<script src="static/jquery/jquery.js"></script>
 	<!-- <![endif]-->
-
-	<!--[if IE]>
-	<script src="../../../static/jquery/jquery-1.11.1.min.js"></script>
-	<![endif]-->
-
-
 	<!-- ace settings handler -->
-	<script src="../../../static/ace/js/ace-extra.min.js"></script>
+	<script src="static/ace/js/ace-extra.min.js"></script>
 
-	<!-- HTML5shiv and Respond.js for IE8 to support HTML5 elements and media queries -->
-
-	<!--[if lte IE 8]>
-	<script src="../../../static/bootstrap/html5shiv.min.js"></script>
-	<script src="../../../static/bootstrap/respond.min.js"></script>
-	<script>var ie8 = "ie8";</script>
-
-
-	<![endif]-->
 </head>
 
 <body class="no-skin" id="body-content">
 <!-- 顶部条 -->
 <div id="navbar" class="navbar navbar-default">
-	<script type="text/javascript">
-        try{ace.settings.check('navbar' , 'fixed')}catch(e){}
-	</script>
+
 
 	<div class="navbar-container clearfix" id="navbar-container">
 		<button type="button" class="navbar-toggle menu-toggler pull-left" id="menu-toggler">
@@ -170,7 +141,7 @@
 
 				<li class="light-blue">
 					<a data-toggle="dropdown"  class="dropdown-toggle">
-						<img class="nav-user-photo" src="../../../static/img/small-male-pic.png" />
+						<img class="nav-user-photo" src="static/img/small-male-pic.png" />
 						<span class="user-info">
 									<small>你好,</small>
 									超级管理员
@@ -203,15 +174,11 @@
 </div>
 <!-- 主体 -->
 <div class="main-container" id="main-container">
-	<script type="text/javascript">
-        try{ace.settings.check('main-container' , 'fixed')}catch(e){}
-	</script>
+
 
 
 	<div id="sidebar" class="sidebar responsive">
-		<script type="text/javascript">
-            try{ace.settings.check('sidebar' , 'fixed')}catch(e){}
-		</script>
+
 
 		<div class="sidebar-shortcuts" id="sidebar-shortcuts">
 			<div class="sidebar-shortcuts-large" id="sidebar-shortcuts-large">
@@ -453,7 +420,7 @@
 					<li data-level="2">
 
 						<a
-								href="../area/area.html"
+								href="../area/index.html"
 								id="menu_managerarea"
 								haschild="false"
 						>
@@ -467,7 +434,7 @@
 					<li data-level="2">
 
 						<a
-								href="office.html"
+								href="../office/office.html"
 								id="menu_manageroffice"
 								haschild="false"
 						>
@@ -617,17 +584,13 @@
 			<i class="ace-icon fa fa-angle-double-left" data-icon1="ace-icon fa fa-angle-double-left" data-icon2="ace-icon fa fa-angle-double-right"></i>
 		</div>
 
-		<script type="text/javascript">
-            try{ace.settings.check('sidebar' , 'collapsed')}catch(e){}
-		</script>
+
 	</div>
 
 
 	<div class="main-content">
 		<div class="breadcrumbs" id="breadcrumbs">
-			<script type="text/javascript">
-                try{ace.settings.check('breadcrumbs' , 'fixed')}catch(e){}
-			</script>
+
 
 			<ul class="tab" id="breadcrumb">
 				<!-- <li class="active" >
@@ -726,12 +689,7 @@
 			<div class="row">
 				<div class="col-xs-12">
 					<div id="fill-main-content" style="height:100%">
-						<script src="http://code.jquery.com/jquery-migrate-1.2.1.js"></script>
-						<script src="../../../static/js/jquery.uploadPreview.js"></script>
-						<!-- ueditor所需引入 -->
-						<script type="text/javascript" src="../../../static/ueditor/ueditor.config.js"></script>
-						<script type="text/javascript" src="../../../static/ueditor/ueditor.all.min.js"></script>
-						<script type="text/javascript" charset="utf-8" src="../../../static/ueditor/lang/zh-cn/zh-cn.js"></script><div class="layer">
+
 						<div class="profile-user-info profile-user-info-striped" >
 							<form enctype="multipart/form-data" action="company/save" name="FormPost" id="office-save-form" class="FormGrid" method="post">
 								<input type="hidden" name="id" value="56"/>
@@ -747,7 +705,7 @@
 										<div class="sbd">
 											<input name="logoFile" type="file" id="logo_input" style="display:none;">
 											<a  id="office-logo">
-												<img id="logo" width="60" height="60" src="../../../static/uploads/logos/t0173066b1d6078dacd.jpg">
+												<img id="logo" width="60" height="60" src="static/uploads/logos/t0173066b1d6078dacd.jpg">
 											</a>
 										</div>
 									</div>
@@ -794,28 +752,28 @@
 											<p style="width:100px;text-align:center;">营业执照</p>
 											<input name="zhizhaoFile" type="file" id="zhizhao_input" style="display:none;">
 											<a  id="zhizhao-img">
-												<img id="zhizhaoImg" width="100" height="100" src="../../../static/img/wechat/b4.png" />
+												<img id="zhizhaoImg" width="100" height="100" src="static/img/wechat/b4.png" />
 											</a>
 										</div>
 										<div style="width:120px;float: left;">
 											<p style="width:100px;text-align:center;">产废资质</p>
 											<input name="chanfeiFile" type="file" id="chanfei_input" style="display:none;">
 											<a  id="chanfei-img">
-												<img id="chanfeiImg" width="100" height="100" src="../../../static/img/wechat/b4.png" />
+												<img id="chanfeiImg" width="100" height="100" src="static/img/wechat/b4.png" />
 											</a>
 										</div>
 										<div style="width:120px;float: left;">
 											<p style="width:100px;text-align:center;">运输资质</p>
 											<input name="yunshuFile" type="file" id="yunshu_input" style="display:none;">
 											<a  id="yunshu-img">
-												<img id="yunshuImg" width="100" height="100" src="../../../static/img/wechat/b4.png" />
+												<img id="yunshuImg" width="100" height="100" src="static/img/wechat/b4.png" />
 											</a>
 										</div>
 										<div style="width:120px;float: left;">
 											<p style="width:100px;text-align:center;">处理资质</p>
 											<input name="chuliFile" type="file" id="chuli_input" style="display:none;">
 											<a  id="chuli-img">
-												<img id="chuliImg" width="100" height="100" src="../../../static/img/wechat/b4.png" />
+												<img id="chuliImg" width="100" height="100" src="static/img/wechat/b4.png" />
 											</a>
 										</div>
 									</div>
@@ -830,10 +788,7 @@
 									<div class="profile-info-value" style="min-height:300px;width:90%;">
 										<!-- 加载编辑器的容器 -->
 										<script id="container" name="remarks" type="text/plain" ></script>
-                                        <!-- 实例化编辑器 -->
-                                        <script type="text/javascript">
-										var ue = UE.getEditor('container');
-										</script>
+
 									</div>
 								</div>
 								<div class="margin-t15">
@@ -842,78 +797,8 @@
 							</form>
 						</div>
 					</div>
-						<script type="text/javascript">
-                            $('textarea[class*=autosize]').autosize({append: "\n"});
-                            $(function(){
-
-                                $('#office-logo').on('click',function(){
-                                    $('#logo_input').click();
-                                    return false;
-                                });
-
-                                $('#logo_input').click(function(){
-                                    $("#logo_input").uploadPreview({ Img: "logo"});//, Width: 200, Height: 140 
-                                });
-
-                                $('#zhizhao-img').on('click',function(){
-                                    $('#zhizhao_input').click();
-                                    return false;
-                                });
-
-                                $('#zhizhao_input').click(function(){
-                                    $("#zhizhao_input").uploadPreview({ Img: "zhizhaoImg"});//, Width: 200, Height: 140 
-                                });
-
-                                $('#chanfei-img').on('click',function(){
-                                    $('#chanfei_input').click();
-                                    return false;
-                                });
-
-                                $('#chanfei_input').click(function(){
-                                    $("#chanfei_input").uploadPreview({ Img: "chanfeiImg"});//, Width: 200, Height: 140 
-                                });
-
-                                $('#yunshu-img').on('click',function(){
-                                    $('#yunshu_input').click();
-                                    return false;
-                                });
-
-                                $('#yunshu_input').click(function(){
-                                    $("#yunshu_input").uploadPreview({ Img: "yunshuImg"});//, Width: 200, Height: 140 
-                                });
-
-                                $('#chuli-img').on('click',function(){
-                                    $('#chuli_input').click();
-                                    return false;
-                                });
-
-                                $('#chuli_input').click(function(){
-                                    $("#chuli_input").uploadPreview({ Img: "chuliImg"});//, Width: 200, Height: 140 
-                                });
-
-                                $("#office-save-btn").click(function(){
-                                    var name = $("#office-save-form input[name='name']");
-                                    if($(name).val() == null || $(name).val() ==''){
-                                        tip.errorTip($(name).attr('nullmsg'), $(name));
-                                        return false;
-                                    }
-                                    var phone = $("#office-save-form input[name='phone']");
-                                    if($(phone).val() == null || $(phone).val() ==''){
-                                        tip.errorTip($(phone).attr('nullmsg'), $(phone));
-                                        return false;
-                                    }
-                                    var address = $("#office-save-form input[name='address']");
-                                    if($(address).val() == null || $(address).val() ==''){
-                                        tip.errorTip($(address).attr('nullmsg'), $(address));
-                                        return false;
-                                    }
-                                    $('#office-save-form').submit();
-                                });
 
 
-                            });
-						</script>
-					</div>
 
 				</div>
 			</div>
@@ -928,39 +813,125 @@
 
 <!-- 底部 -->
 <!-- basic scripts -->
-
-
-
 <script type="text/javascript">
-    if('ontouchstart' in document.documentElement) document.write("<script src='../../../../static/jquery.mobile.custom.min.js'>"+"<"+"/script>");
+
+	$(function(){
+
+		$('#office-logo').on('click',function(){
+			$('#logo_input').click();
+			return false;
+		});
+
+		$('#logo_input').click(function(){
+			$("#logo_input").uploadPreview({ Img: "logo"});//, Width: 200, Height: 140
+		});
+
+		$('#zhizhao-img').on('click',function(){
+			$('#zhizhao_input').click();
+			return false;
+		});
+
+		$('#zhizhao_input').click(function(){
+			$("#zhizhao_input").uploadPreview({ Img: "zhizhaoImg"});//, Width: 200, Height: 140
+		});
+
+		$('#chanfei-img').on('click',function(){
+			$('#chanfei_input').click();
+			return false;
+		});
+
+		$('#chanfei_input').click(function(){
+			$("#chanfei_input").uploadPreview({ Img: "chanfeiImg"});//, Width: 200, Height: 140
+		});
+
+		$('#yunshu-img').on('click',function(){
+			$('#yunshu_input').click();
+			return false;
+		});
+
+		$('#yunshu_input').click(function(){
+			$("#yunshu_input").uploadPreview({ Img: "yunshuImg"});//, Width: 200, Height: 140
+		});
+
+		$('#chuli-img').on('click',function(){
+			$('#chuli_input').click();
+			return false;
+		});
+
+		$('#chuli_input').click(function(){
+			$("#chuli_input").uploadPreview({ Img: "chuliImg"});//, Width: 200, Height: 140
+		});
+
+		$("#office-save-btn").click(function(){
+			var name = $("#office-save-form input[name='name']");
+			if($(name).val() == null || $(name).val() ==''){
+				tip.errorTip($(name).attr('nullmsg'), $(name));
+				return false;
+			}
+			var phone = $("#office-save-form input[name='phone']");
+			if($(phone).val() == null || $(phone).val() ==''){
+				tip.errorTip($(phone).attr('nullmsg'), $(phone));
+				return false;
+			}
+			var address = $("#office-save-form input[name='address']");
+			if($(address).val() == null || $(address).val() ==''){
+				tip.errorTip($(address).attr('nullmsg'), $(address));
+				return false;
+			}
+			$('#office-save-form').submit();
+		});
+
+
+	});
 </script>
-<script src="../../../static/bootstrap/bootstrap.min.js"></script>
+
+<script src="http://code.jquery.com/jquery-migrate-1.2.1.js"></script>
+<script src="static/js/jquery.uploadPreview.js"></script>
+<!-- ueditor所需引入 -->
+<script type="text/javascript" src="static/ueditor/ueditor.config.js"></script>
+<script type="text/javascript" src="static/ueditor/ueditor.all.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="static/ueditor/lang/zh-cn/zh-cn.js"></script>
+<script src="static/bootstrap/bootstrap.min.js"></script>
 
 <!-- ace scripts -->
-<script src="../../../static/ace/js/ace-elements.min.js"></script>
-<script src="../../../static/ace/js/ace.min.js"></script>
-
+<script src="static/ace/js/ace-elements.min.js"></script>
+<script src="static/ace/js/ace.min.js"></script>
+<!-- 实例化编辑器 -->
 <script type="text/javascript">
-    var ctxPath = "../../../..";
-    window.onload=function(){
-        /* $("#ace-settings-navbar").trigger("click");//固定头部导航栏
-        $("#ace-settings-sidebar").trigger("click");//固定左侧菜单
-        $("#ace-settings-highlight").trigger("click"); */
-    };
+
+	var ue = UE.getEditor('container');
+
+	$(function(){
+		$('textarea[class*=autosize]').autosize({append: "\n"});
+
+		$("#navbar").load("html/commons/navbar.html");
+		$("#sidebar").load("html/commons/sidebar.html");
+		$("#ace-settings-container").load("html/commons/settingsContainer.html");
+	})
+	try{ace.settings.check('navbar' , 'fixed')}catch(e){}
+	try{ace.settings.check('main-container' , 'fixed')}catch(e){}
+	try{ace.settings.check('sidebar' , 'fixed')}catch(e){}
+	try{ace.settings.check('sidebar' , 'collapsed')}catch(e){}
+	try{ace.settings.check('breadcrumbs' , 'fixed')}catch(e){}
+
 </script>
 
 <!-- 引入其他js -->
-<script src="../../../static/js/history.js"></script>
-<script type="text/javascript" src="../../../static/layer/layer.js"></script>
-<script type="text/javascript" src="../../../static/js/spin.min.js"></script>
-<script type="text/javascript" src="../../../static/ztree/jquery.ztree.all-3.5.min.js"></script>
-<script type="text/javascript" src="../../../static/js/jquery.autosize.min.js"></script>
-<script type="text/javascript" src="../../../static/chosen/chosen.jquery.min.js"></script>
-<script type="text/javascript" src="../../../static/validate/Validform_v5.3.2_min.js"></script>
-<script type="text/javascript" src="../../../static/js/jquery.form.js"></script>
-<script type="text/javascript" src="../../../static/js/bootstrap-contextmenu.js"></script>
-<script type="text/javascript" src="../../../static/js/jquery.nicescroll.min.js"></script>
-<script type="text/javascript" src="../../../static/js/public.js"></script>
+<script src="static/js/history.js"></script>
+<script type="text/javascript" src="static/layer/layer.js"></script>
+<script type="text/javascript" src="static/js/spin.min.js"></script>
+<script type="text/javascript" src="static/ztree/jquery.ztree.all-3.5.min.js"></script>
+<script type="text/javascript" src="static/js/jquery.autosize.min.js"></script>
+<script type="text/javascript" src="static/chosen/chosen.jquery.min.js"></script>
+<script type="text/javascript" src="static/validate/Validform_v5.3.2_min.js"></script>
+<script type="text/javascript" src="static/js/jquery.form.js"></script>
+<script type="text/javascript" src="static/js/bootstrap-contextmenu.js"></script>
+<script type="text/javascript" src="static/js/jquery.nicescroll.min.js"></script>
+<script type="text/javascript" src="static/js/public.js"></script>
+<script type="text/javascript" src="static/vue/vue.js"></script>
+<script type="text/javascript" src="static/vue/axios.js"></script>
+
+<!--<script type="text/javascript" src="static/js/area/index.js"></script>-->
 
 
 </body>
