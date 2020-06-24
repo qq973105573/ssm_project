@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -30,6 +31,11 @@ public class TestArea {
         for (SysArea SysArea : SysAreas) {
             System.out.println(SysArea);
         }
+    }
+    @Test
+    public void TestInsertBatch(){
+        List<SysArea> sysAreas = sysAreaMapper.selectAll();
+        sysAreaMapper.insertBatch(sysAreas);
     }
 }
 

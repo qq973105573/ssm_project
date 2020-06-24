@@ -1,5 +1,9 @@
 package com.hwp.entity;
 
+import com.alibaba.excel.annotation.ExcelIgnore;
+import com.alibaba.excel.annotation.ExcelProperty;
+import com.alibaba.excel.annotation.format.DateTimeFormat;
+
 import javax.persistence.Column;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -12,45 +16,53 @@ public class SysArea {
      * 编号
      */
     @Id
+    @ExcelProperty(value = "编号")
     private Long id;
 
     /**
      * 父级编号
      */
     @Column(name = "parent_id")
+    @ExcelProperty(value = "父级编号")
     private Long parentId;
 
     /**
      * 所有父级编号
      */
     @Column(name = "parent_ids")
+    @ExcelProperty(value = "所有父级编号")
     private String parentIds;
 
     /**
      * 区域编码
      */
+    @ExcelProperty(value = "区域编号")
     private String code;
 
     /**
      * 区域名称
      */
+    @ExcelProperty(value = "区域名称")
     private String name;
 
     /**
      * 区域类型
      */
+    @ExcelProperty(value = "区域类型")
     private String type;
 
     /**
      * 创建者
      */
     @Column(name = "create_by")
+    @ExcelProperty(value = "创建者")
     private String createBy;
 
     /**
      * 创建时间
      */
     @Column(name = "create_date")
+    @DateTimeFormat(value = "yyyy年MM月dd日HH时mm分ss秒")
     private Date createDate;
 
     /**
@@ -63,23 +75,60 @@ public class SysArea {
      * 更新时间
      */
     @Column(name = "update_date")
+    @DateTimeFormat(value = "yyyy年MM月dd日HH时mm分ss秒")
     private Date updateDate;
 
     /**
      * 备注信息
      */
+    @ExcelProperty(value = "备注信息")
     private String remarks;
 
     /**
      * 删除标记(0活null 正常 1,删除)
      */
     @Column(name = "del_flag")
+    @ExcelProperty(value = "标记删除")
     private String delFlag;
-
+    @ExcelProperty(value = "图标")
     private String icon;
 
     @Transient
+    @ExcelIgnore
     private String parentName;
+
+    @Transient
+    @ExcelIgnore
+    private String oldParentIds;
+
+    @Override
+    public String toString() {
+        return "SysArea{" +
+                "id=" + id +
+                ", parentId=" + parentId +
+                ", parentIds='" + parentIds + '\'' +
+                ", code='" + code + '\'' +
+                ", name='" + name + '\'' +
+                ", type='" + type + '\'' +
+                ", createBy='" + createBy + '\'' +
+                ", createDate=" + createDate +
+                ", updateBy='" + updateBy + '\'' +
+                ", updateDate=" + updateDate +
+                ", remarks='" + remarks + '\'' +
+                ", delFlag='" + delFlag + '\'' +
+                ", icon='" + icon + '\'' +
+                ", parentName='" + parentName + '\'' +
+                ", oldParentIds='" + oldParentIds + '\'' +
+                '}';
+    }
+
+    public String getOldParentIds() {
+        return oldParentIds;
+    }
+
+    public void setOldParentIds(String oldParentIds) {
+        this.oldParentIds = oldParentIds;
+    }
 
     public String getParentName() {
         return parentName;
@@ -319,23 +368,4 @@ public class SysArea {
         this.icon = icon == null ? null : icon.trim();
     }
 
-    @Override
-    public String toString() {
-        return "SysArea{" +
-                "id=" + id +
-                ", parentId=" + parentId +
-                ", parentIds='" + parentIds + '\'' +
-                ", code='" + code + '\'' +
-                ", name='" + name + '\'' +
-                ", type='" + type + '\'' +
-                ", createBy='" + createBy + '\'' +
-                ", createDate=" + createDate +
-                ", updateBy='" + updateBy + '\'' +
-                ", updateDate=" + updateDate +
-                ", remarks='" + remarks + '\'' +
-                ", delFlag='" + delFlag + '\'' +
-                ", icon='" + icon + '\'' +
-                ", parentName='" + parentName + '\'' +
-                '}';
-    }
 }

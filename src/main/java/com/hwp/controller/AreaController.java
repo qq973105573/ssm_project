@@ -7,8 +7,13 @@ import com.hwp.entity.SysArea;
 import com.hwp.service.AreaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -48,6 +53,26 @@ public class AreaController {
     @RequestMapping("selectAll")
     public List<SysArea> selectAll(){
         return areaService.selectAll();
+    }
+
+    @RequestMapping("doUpdate")
+    public Result doUpdate(@RequestBody SysArea area){
+        area.setUpdateDate(new Date());
+        areaService.updateByPrimaryKeySelective(area);
+        return new Result(true,"更新成功",null);
+    }
+
+    @RequestMapping("download")
+    public void download(HttpServletResponse resp) throws IOException {
+        resp.setHeader("Content-Disposition","attachment;;filename="+new String("SysArea.xlsx".getBytes(),"iso8859-1"));
+        areaService.download(resp.getOutputStream());
+    }
+
+    @RequestMapping("upload")
+    public Result upload(MultipartFile file) throws IOException {
+        areaService.upload(file.getInputStream());
+        return new Result(true,"导入成功",null);
+
     }
 //
 //    @RequestMapping(value = "doUpdate",method = RequestMethod.PUT)
