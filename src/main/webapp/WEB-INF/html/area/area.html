@@ -29,24 +29,16 @@
     <!-- ace settings handler -->
     <script src="static/ace/js/ace-extra.min.js"></script>
 </head>
-
 <body class="no-skin" id="body-content">
 <!-- 顶部条 -->
 <div id="navbar" class="navbar navbar-default">
-
 </div>
 <!-- 主体 -->
 <div class="main-container" id="main-container">
-
     <div id="sidebar" class="sidebar responsive">
-
     </div>
-
-
     <div class="main-content">
         <div class="breadcrumbs" id="breadcrumbs">
-
-
             <ul class="tab" id="breadcrumb">
                 <!-- <li class="active" >
                菜单配置<i class="fa fa-times close"></i>
@@ -157,7 +149,7 @@
                                           action="area/list">
                                         <div class="input-group" style="line-height: 0px;">
 					<span class="input-group-btn">
-						<span class=" btn btn-success btn-sm" id="search-all-btn" @click="selectAll(1,pageInfo.pageSize)">
+						<span class=" btn btn-success btn-sm" id="search-all-btn" @click="selectAreaName">
 							 显示全部
 						</span>
 					</span>
@@ -166,7 +158,7 @@
                                                    name="name" placeholder="区域名称" id="search-input" v-model="params.areaName">
                                             <span class="input-group-btn">
 						<span class="btn  btn-success btn-sm"
-                              id="search-btn" @click="selectAreaName">
+                              id="search-btn" @click="selectAll(1,pageInfo.pageSize)">
 							搜索 <i class="ace-icon fa fa-search icon-on-right bigger-110"></i>
 						</span>
 					</span>
@@ -176,7 +168,7 @@
                                 </div>
                                 <div class="widget-toolbar">
 			<span class="btn btn-purple btn-xs"
-                  onclick="Angel.downloadFile('search-form','area/export')">
+                  @click="downloadFile">
 			<i class="ace-icon fa fa-cloud-upload bigger-130"></i>
 			导出Excel</span>
                                 </div>
@@ -185,9 +177,7 @@
 				<i class="ace-icon fa fa-cloud-download bigger-130"></i>
 				<span>导入数据</span>
 				<input type="file" class="phide" name="excel"
-                       data-url="area/import" _accept="application/vnd.ms-excel"
-                       data-progressid="#excel-progress"
-                       onchange="Angel.uploadFile.excel(this);"/>
+                       @change="uploadFile"/>
 			</span>
                                 </div>
                                 <div class="widget-toolbar no-border">
@@ -328,7 +318,6 @@
 <script type="text/javascript" src="static/js/public.js"></script>
 <script type="text/javascript" src="static/vue/vue.js"></script>
 <script type="text/javascript" src="static/vue/axios.js"></script>
-
 <script type="text/javascript" src="static/js/area/area.js"></script>
 
 

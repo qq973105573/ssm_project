@@ -57,7 +57,9 @@ let vm = new Vue({
                 content:'manager/area/toUpdate',
                 area:['80%','80%'],
                 end:()=>{
-                    this.selectAll(this.pageInfo.pageNum,this.pageInfo.pageSize);
+                    if(!layer.success){
+                        this.selectAll(1,this.pageInfo.pageSize);
+                    }
                 }
             })
         },
@@ -81,15 +83,43 @@ let vm = new Vue({
             return false;//阻止进入修改节点状态
         },
         addHoverDom:function (treeId,treeNode) {
-            let aObj = $("#" + treeNode.tId + "_a");
+            let aObj = $("#" + treeNode.tId + "_a");//获取li标签的id
             if ($("#treeMenu_"+treeNode.id+"_add").length>0) return;
-            let editStr = `<span class="button add" id="treeMenu_${treeNode.id}_add" title="add"  style=""></span>`;
+            let editStr = `<span class="button add" id="treeMenu_${treeNode.id}_add" title="add" style=""></span>`;
             aObj.append(editStr);
             let span = $("#treeMenu_"+treeNode.id+"_add");
-            if (span) span.bind("click", function(){alert("diy Button for " + treeNode.name);});
+            if (span) span.bind("click", function(){
+                alert("diy Button for " + treeNode.name);
+            });
         },
         removeHoverDom:function (treeId,treeNode) {
             $("#treeMenu_"+treeNode.id+"_add").unbind().remove();
+        },
+        downloadFile:function () {
+            location.href="manager/area/download";
+        },
+        /**
+         * ajax文件上传：
+         * 1.通过事件对象获取事件源中的文件对象
+         * 2.创建FormData对象，将文件对象放入FormData对象
+         * 3.设置ajax的请求header为multipart/form-data,请求方式为Post
+         * 4.ajax发送请求，传输FormData对象
+         */
+        uploadFile:function(e){
+            console.log(e.target.files[0]);
+            let file = e.target.files[0];
+            let form = new FormData();
+            form.append("file",file);//"file"需要于后台接受参数名一致
+            axios({
+                url:'manager/area/upload',
+                method:'post',
+                data:form,
+                headers:{'content-type':'multipart/form-data'}
+            }).then(response=>{
+                layer.msg(response.data.msg);
+            }).catch(error=>{
+                layer.msg(error.message);
+            })
         }
     },
     created: function () {

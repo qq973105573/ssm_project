@@ -88,16 +88,16 @@
                                             <td class="DataTD width-100">
                                                 <select class="chosen-select " name="type" id="chosen-select"
                                                         style="display: none;" v-model="area.type">
-                                                    <option value="1">
+                                                    <option value="1" v-if="area.type<=1">
                                                         国家
                                                     </option>
-                                                    <option value="2" selected="">
+                                                    <option value="2" selected=""  v-if="area.type<=2">
                                                         省份、直辖市
                                                     </option>
-                                                    <option value="3">
+                                                    <option value="3" v-if="area.type<=3">
                                                         区级
                                                     </option>
-                                                    <option value="4">
+                                                    <option value="4" v-if="area.type<=4">
                                                         街道
                                                     </option>
 
@@ -113,9 +113,8 @@
                                                     <input class="form-control search-query" type="text" readonly=""
                                                            id="treeselectname" name="" v-model="area.parentName">
                                                     <span class="input-group-btn">
-		<span class="btn btn-purple btn-sm" type="button" style="height: 34px;">
+		<span class="btn btn-purple btn-sm" type="button" style="height: 34px;" @click="toSelect">
 			<i class="ace-icon fa fa-search bigger-110" ></i>
-            <a  >查找</a>
 		</span>
 	</span>
                                                     <input type="hidden" name="parentId" id="treeselectid" value="1">
@@ -152,11 +151,10 @@
 
                             <div class="width-100 clearfix" tag-save-btn=""
                                  style="bottom: -36px; left: 0px; position: absolute;">
-	<span class="btn btn-primary btn-sm bigger-110 width-50  pull-left" id="area-save-save">
+	<span class="btn btn-primary btn-sm bigger-110 width-50  pull-left" id="area-save-save" @click="doUpdate">
 		<i class="ace-icon fa fa-floppy-o align-top bigger-125"></i> 确 定
 	</span>
-                                <span class="btn btn-yellow btn-sm bigger-110 width-50 pull-right"
-                                      id="area-save-cancel">
+    <span class="btn btn-yellow btn-sm bigger-110 width-50 pull-right" id="area-save-cancel" @click="toClose">
 		<i class="ace-icon fa fa-times align-top  bigger-125"></i> 取 消
 	</span>
                             </div>
