@@ -72,9 +72,7 @@ public class AreaController {
     public Result upload(MultipartFile file) throws IOException {
         areaService.upload(file.getInputStream());
         return new Result(true,"导入成功",null);
-
     }
-//
 //    @RequestMapping(value = "doUpdate",method = RequestMethod.PUT)
 //    public Result doUpdate(@RequestBody Statute statute){
 //        //设置更新时间

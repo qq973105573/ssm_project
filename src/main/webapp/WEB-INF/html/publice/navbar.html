@@ -105,7 +105,7 @@
                     <img class="nav-user-photo" src="static/img/small-male-pic.png" />
                     <span class="user-info">
 									<small>你好,</small>
-									超级管理员
+									{{name}}
 								</span>
 
                     <i class="ace-icon fa fa-caret-down"></i>
@@ -122,7 +122,7 @@
                     <li class="divider"></li>
 
                     <li>
-                        <a href="../login.html">
+                        <a @click="logout">
                             <i class="ace-icon fa fa-power-off"></i>
                             退出
                         </a>
@@ -132,3 +132,26 @@
         </ul>
     </div>
 </div><!-- /.navbar-container -->
+
+<script>
+    let vm = new Vue({
+        el:'#navbar-container',
+        data:{
+            name:''
+        },
+        methods:{
+            logout:function () {
+                sessionStorage.clear();
+                location.href='logout'
+            }
+        },
+        created:function () {
+            let item = sessionStorage.getItem("loginUser").let;
+            //转换成json对象
+            if(item!=undefined){
+                let loginUser=JSON.parse(item);
+                this.name = loginUser.name;
+            }
+        }
+    })
+</script>

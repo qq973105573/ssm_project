@@ -1,13 +1,12 @@
 package com.hwp.config;
 
+import com.hwp.interceptor.LoginInterceptor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.multipart.MultipartResolver;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
-import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.servlet.config.annotation.*;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 @Configuration
@@ -33,5 +32,14 @@ public class SpringMvc implements WebMvcConfigurer {
     @Bean("multipartResolver")
     public MultipartResolver getMultipartResolver(){
         return new CommonsMultipartResolver();
+    }
+
+    @Override
+    public void addInterceptors(InterceptorRegistry registry){
+        LoginInterceptor loginInterceptor = new LoginInterceptor();
+        //注册后的处理对象
+        InterceptorRegistration interceptorRegistration = registry.addInterceptor(loginInterceptor);
+        interceptorRegistration.addPathPatterns("/**");//添加拦截规则
+        interceptorRegistration.excludePathPatterns(new String[]{"/navbar","/sidebar","/doLogin"});//忽略拦截规则
     }
 }

@@ -10,7 +10,9 @@ import java.util.List;
 
 public class SysAreaListener extends AnalysisEventListener<SysArea> {
     private SysAreaMapper sysAreaMapper;
+
     private List<SysArea> sysAreas = new ArrayList<>();//创建缓存集合
+
     public SysAreaListener(SysAreaMapper sysAreaMapper){
         this.sysAreaMapper = sysAreaMapper;
     }
@@ -28,7 +30,6 @@ public class SysAreaListener extends AnalysisEventListener<SysArea> {
             sysAreas.clear();
         }
     }
-
     /**
      * 当所有行都读取完成之后，会自动调用当前方法
      * @param analysisContext
